@@ -48,7 +48,7 @@ const App = () => {
 
   const fetchBands = (cityName) => {
     setLoading(true);
-    fetch(`https://corsproxy.io/?https://musicbrainz.org/ws/2/area/?query=${cityName}&fmt=json`)
+    fetch(`https://musicbrainz.org/ws/2/area/?query=${cityName}&fmt=json`)
       .then(res => res.json())
       .then(data => {
         const area = data.areas && data.areas[0];
