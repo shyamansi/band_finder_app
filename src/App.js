@@ -56,7 +56,7 @@ const App = () => {
 
         const areaId = area.id;
 
-        return fetch(`https://corsproxy.io/?https://musicbrainz.org/ws/2/artist?area=${areaId}&fmt=json&limit=100`);
+        return fetch(`https://musicbrainz.org/ws/2/artist?area=${areaId}&fmt=json&limit=100`);
       })
       .then(res => res.json())
       .then(data => {
