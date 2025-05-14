@@ -8,7 +8,7 @@ const App = () => {
 
   useEffect(() => {
     getUserLocation();
-  });
+  },[]);
  const cityCheck=()=>{
   if (city.length === 0){
   alert("Enter City Name"); 
@@ -48,7 +48,7 @@ const App = () => {
 
   const fetchBands = (cityName) => {
     setLoading(true);
-    fetch(`https://musicbrainz.org/ws/2/area/?query=${cityName}&fmt=json`)
+    fetch(`https://corsproxy.io/?https://musicbrainz.org/ws/2/area/?query=${cityName}&fmt=json`)
       .then(res => res.json())
       .then(data => {
         const area = data.areas && data.areas[0];
@@ -56,7 +56,7 @@ const App = () => {
 
         const areaId = area.id;
 
-        return fetch(`https://musicbrainz.org/ws/2/artist?area=${areaId}&fmt=json&limit=100`);
+        return fetch(`https://corsproxy.io/?https://musicbrainz.org/ws/2/artist?area=${areaId}&fmt=json&limit=100`);
       })
       .then(res => res.json())
       .then(data => {
