@@ -9,11 +9,11 @@ const App = () => {
   useEffect(() => {
     getUserLocation();
   },[]);
- const cityCheck=()=>{
-  if (city.length === 0){
-  alert("Enter City Name"); 
-  }
- }
+//  const cityCheck=()=>{
+//   if (city.length === 0){
+//   alert("Enter City Name"); 
+//   }
+//  }
 
   const getUserLocation = () => {
     if (navigator.geolocation) {
@@ -84,6 +84,9 @@ const App = () => {
     if (city){
       fetchBands(city);
     }
+    else{
+      alert("Enter City Name");
+    }
 
   };
  
@@ -92,7 +95,7 @@ const App = () => {
       <h1> Band Finder App</h1>
       <form onSubmit={bandSearch}>
         <input type='text' value={city} onChange={(e)=>setCity(e.target.value)} placeholder='Enter City'/>
-        <button type="submit" className="btn btn-primary btn-sm" style={{position: 'fixed'}} onClick={cityCheck}>Find Band</button>
+        <button type="submit" className="btn btn-primary btn-sm" style={{position: 'fixed'}} >Find Band</button>
 
       </form>
       {loading ? <p>Loading bands...</p>:<BandList bands={bands}/>}
